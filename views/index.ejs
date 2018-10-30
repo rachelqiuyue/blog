@@ -1,0 +1,19 @@
+<% include ./partials/header%>
+<div class = "ui main text container segement">
+<h1>Welcome to Rachel's secret garden.</h1>
+
+<% blogs.forEach(function(blog){ %>
+    <div>
+        <a id = "title" href ="/blogs/<%=blog._id%>" style = "color:grey;font-size:30px"><%= blog.title%></a>
+        <p style = "font-size:15px">Date:<%= blog.created.toDateString()%></p>
+        <% if (blog.image!=""){%>
+            <img src = "<%= blog.image%>" style="width:500px;height:600px;">
+        <%}%>
+        
+        <p style = "font-size:20px"><%= blog.body.substring(0,100)%>...</p>
+        <a href ="/blogs/<%=blog._id%>">More description </a>
+    </div>
+    <hr>
+<% })  %>
+</div>
+<% include ./partials/footer%>
